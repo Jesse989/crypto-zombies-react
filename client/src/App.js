@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import ZombieFactory from "./contracts/ZombieFactory.json"
 import getWeb3 from "./utils/getWeb3"
-import { Button, Form, Header, Container } from "semantic-ui-react"
+import { Button, Form, Header, Container, Grid } from "semantic-ui-react"
 
 class App extends Component {
   state = {
@@ -69,27 +69,29 @@ class App extends Component {
       return <div>Loading Web3, accounts, and contract...</div>;
     }
     return (
-      <div className="App">
-        <Container textAlign='center'>
-          <Header as='h1'>Zombies!</Header>
-        </Container>
-        <div className="ui raised very padded text container segment">
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Field>
-              <label>
-                Name:
-              </label>
-              <input
-                type="text"
-                name="name"
-                value={this.state.nameValue}
-                onChange={this.handleChange}
-              />
-            </Form.Field>
-            <Button type="Submit">Submit</Button>
-          </Form>
-        </div>
-      </div>
+      <Container className="App">
+        <Grid centered columns={1}>
+          <Grid.Column>
+            <Container text textAlign="center">
+              <Header as='h1'>Zombies!</Header>
+              <Form onSubmit={this.handleSubmit}>
+                <Form.Field>
+                  <label>
+                    Name:
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={this.state.nameValue}
+                    onChange={this.handleChange}
+                  />
+                </Form.Field>
+                <Button type="Submit">Submit</Button>
+              </Form>
+            </Container>
+          </Grid.Column>
+        </Grid>
+      </Container>
     );
   }
 }
