@@ -1,0 +1,11 @@
+[ignore]
+.*/node_modules/oboe/test/json/incomplete.json
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]
